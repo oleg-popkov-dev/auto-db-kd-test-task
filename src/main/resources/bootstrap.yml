@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: auto-db-kd-test-task
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  devtools:
+    livereload:
+      enabled: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/auto-db
+    initialization-mode: always
+    username: postgres
+    password: postgres
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
